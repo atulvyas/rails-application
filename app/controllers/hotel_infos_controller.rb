@@ -16,10 +16,8 @@ class HotelInfosController < ApplicationController
 
   def index
     @hotels = HotelInfo.all.select('id , name, image_url')
-    respond_to do |format|
       msg = { result: { hotels: @hotels.as_json, status: 'ok' } }
-      format.json { render json: msg }
-    end
+      render json: msg 
   end
 
   def show
